@@ -1,5 +1,5 @@
-# Neural-Network-from-scratch-in-Python
-I developed a neural network in Python for classificication and regression problems. The whole project follows an object oriented approach. There is definetely room from improvement and there will be additions to the project (an rbf layer class for example , or other optimizers). 
+# Python Implementation of a Deep Neural Network
+I developed from scratch a deep neural network in Python for classificication and regression problems. The whole project follows an object oriented approach and is written only using the numpy python library. There is definetely room from improvement and there will be additions to the project in the future (an rbf layer class for example , or other optimizers). 
 
 * Layer: 
   This files contains a basic implementation of a fully connected layer. The initialization of the weights is based on gaussian distribution 
