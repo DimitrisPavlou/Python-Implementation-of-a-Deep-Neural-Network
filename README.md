@@ -1,10 +1,10 @@
 # Neural-Network-from-scratch-in-Python
 I developed a neural network in Python for classificication and regression problems. The whole project follows an object oriented approach. There is definetely room from improvement and there will be additions to the project (an rbf layer class for example , or other optimizers). 
 
-* Layer
+* Layer \n
   This files contains a basic implementation of a fully connected layer. The initialization of the weights is based on gaussian distribution 
 
-* Optimizers
+* Optimizers \n
   This files contains the implementations of the SGD and Adam optimzer. Both optimizers have methods called pre_update and post_update which are called every epoch and a     main update_params method which is called every time we update parameters 
 
 * ActivationFunctions  
