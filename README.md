@@ -1,22 +1,57 @@
-# Python Implementation of a Deep Neural Network
-I developed from scratch a deep neural network in Python for classificication and regression problems. The whole project follows an object oriented approach and is written only using the numpy python library. There is definetely room from improvement and there will be additions to the project in the future (an rbf layer class for example , or other optimizers). 
+# 🧠 Deep Neural Network from Scratch (NumPy)
 
-* Layer: 
-  This files contains a basic implementation of a fully connected layer. The initialization of the weights is based on gaussian distribution 
+This project is a **from-scratch implementation of a Deep Neural Network (DNN)** in Python for both **classification** and **regression** tasks.  
+It follows an **object-oriented design** and relies only on the **NumPy** library.  
 
-* Optimizers: 
-  This files contains the implementations of the SGD and Adam optimzer. Both optimizers have methods called pre_update and post_update which are called every epoch and a     main update_params method which is called every time we update parameters 
+The project is designed to be educational and extensible — for example, future additions may include an **RBF layer** or **additional optimizers**.  
 
-* ActivationFunctions:  
-  This files contains the typical activation functions : ReLu , Sigmoid , Tanh , Softmax
+---
 
-* Loss:
-  This files contains the implementations of the MSE loss and Categorical Cross Entropy Loss functions . It also contains a class for a common object for the combo Softmax   Activation function and Categorical Cross Entropy loss function. More details about this can be found here : 
-  https://www.mldawn.com/back-propagation-with-cross-entropy-and-softmax/
+## 📂 Project Structure
 
-* NeuralNetwork: 
-  This files contains the main function for the training of the network called train and 3 helper functions , create_batch , forward_pass , backword_pass. The batches are    created randomly. In the training function theres it the option to pass a validation set as well as the training set .There is also the option to stop the training         prematurely if the validation loss starts to increase.
+### 🔹 Layer
+- Implements a fully connected (dense) layer.  
+- Weights are initialized using a **Gaussian distribution**.  
 
-* test:
-  In this file we perform a test run on the network on the fashion mnist dataset from keras. The accuracy we got was 88%
+### 🔹 Optimizers
+- Includes implementations of **SGD** and **Adam**.  
+- Each optimizer defines:
+  - `pre_update()` → called at the start of each epoch  
+  - `update_params()` → updates parameters on every batch  
+  - `post_update()` → called at the end of each epoch  
 
+### 🔹 ActivationFunctions
+- Implements standard activation functions:  
+  - **ReLU**  
+  - **Sigmoid**  
+  - **Tanh**  
+  - **Softmax**  
+
+### 🔹 Loss
+- Implements loss functions:  
+  - **Mean Squared Error (MSE)**  
+  - **Categorical Cross Entropy**  
+- Includes a combined **Softmax + Cross Entropy** class for stable backpropagation.  
+- More details: [Backpropagation with Cross Entropy and Softmax](https://www.mldawn.com/back-propagation-with-cross-entropy-and-softmax/)  
+
+### 🔹 NeuralNetwork
+- Core training logic with methods:  
+  - `train()` → main training loop  
+  - `create_batch()` → random mini-batch generation  
+  - `forward_pass()` → computes outputs  
+  - `backward_pass()` → propagates gradients  
+- Supports:  
+  - Training with/without a validation set  
+  - Early stopping if validation loss increases  
+
+### 🔹 test
+- Test run using the **Fashion-MNIST** dataset from Keras.  
+- Achieved **~88% accuracy**.  
+
+---
+
+## ✨ Key Features
+- Fully implemented **forward and backward passes**  
+- Customizable architecture with multiple layers and activations  
+- Works for both **classification** and **regression** problems  
+- Educational code structure, easy to extend with new layers/optimizers  
