@@ -1,6 +1,6 @@
 # 🧠 Deep Neural Network from Scratch (NumPy)
 
-This project is a **from-scratch implementation of a Deep Neural Network (DNN)** in Python for both **classification** and **regression** tasks.  
+This project is a **from-scratch implementation of a Multilayer Perceptron (MLP)** in Python for both **classification** and **regression** tasks.  
 It follows an **object-oriented design** and relies only on the **NumPy** library.  
 
 The project is designed to be educational and extensible — for example, future additions may include an **RBF layer** or **additional optimizers**.  
@@ -9,49 +9,120 @@ The project is designed to be educational and extensible — for example, future
 
 ## 📂 Project Structure
 
-### 🔹 Layer
-- Implements a fully connected (dense) layer.  
-- Weights are initialized using a **Gaussian distribution**.  
+---
 
-### 🔹 Optimizers
-- Includes implementations of **SGD** and **Adam**.  
-- Each optimizer defines:
-  - `pre_update()` → called at the start of each epoch  
-  - `update_params()` → updates parameters on every batch  
-  - `post_update()` → called at the end of each epoch  
+## 🔹 Layers (`nn/layers.py`)
 
-### 🔹 ActivationFunctions
-- Implements standard activation functions:  
-  - **ReLU**  
-  - **Sigmoid**  
-  - **Tanh**  
-  - **Softmax**  
+Implements a fully connected **Dense layer** with:
 
-### 🔹 Loss
-- Implements loss functions:  
-  - **Mean Squared Error (MSE)**  
-  - **Categorical Cross Entropy**  
-- Includes a combined **Softmax + Cross Entropy** class for stable backpropagation.  
-- More details: [Backpropagation with Cross Entropy and Softmax](https://www.mldawn.com/back-propagation-with-cross-entropy-and-softmax/)  
+- Forward pass  
+- Backward pass  
+- Parameter storage for optimizers  
+- Weight initialization via `utils/weight_init.py`  
+  (Gaussian, Xavier, He, etc.)
 
-### 🔹 NeuralNetwork
-- Core training logic with methods:  
-  - `train()` → main training loop  
-  - `create_batch()` → random mini-batch generation  
-  - `forward_pass()` → computes outputs  
-  - `backward_pass()` → propagates gradients  
-- Supports:  
-  - Training with/without a validation set  
-  - Early stopping if validation loss increases  
+---
 
-### 🔹 test
-- Test run using the **Fashion-MNIST** dataset from Keras.  
-- Achieved **~88% accuracy**.  
+## 🔹 Activation Functions (`nn/activations.py`)
+
+Implements the most common activation functions:
+
+- **ReLU**  
+- **Sigmoid**  
+- **Tanh**  
+- **Softmax**
+
+Each activation class includes both `forward()` and `backward()`.
+
+---
+
+## 🔹 Loss Functions (`nn/loss_functions.py`)
+
+Includes:
+
+- **Mean Squared Error (MSE)**
+- **Categorical Cross Entropy**
+- **Softmax + Cross Entropy (Combined)**  
+  → Numerically stable for classification
+
+---
+
+## 🔹 Optimizers (`optim/optimizers.py`)
+
+Optimization algorithms implemented from scratch:
+
+- **SGD**
+- **Adam**
+
+Each optimizer supports:
+
+- `pre_update()` – called at the start of each epoch  
+- `update_params(layer)` – updates weights & biases  
+- `post_update()` – called at the end of each epoch  
+
+---
+
+## 🔹 Training Engine (`training/trainer.py`)
+
+Centralized training loop:
+
+- Batch creation  
+- Forward & backward passes  
+- Parameter updates  
+- Validation support  
+- Callback system (via `callbacks.py`)  
+  - Early stopping  
+  - Logging  
+  - Custom hooks  
+
+---
+
+## 🔹 Data Loader (`data/dataloader.py`)
+
+Simple data loading utilities:
+
+- Shuffling  
+- Mini-batch generation  
+- Dataset preparation helpers  
+
+---
+
+## 🔹 Utilities (`utils/`)
+
+Contains helper modules:
+
+- `metrics.py` → Accuracy, etc.  
+- `weight_init.py` → Weight initialization schemes  
+- Additional general utilities
+
+---
+
+## 🔹 Example Notebook (`train.ipynb`)
+
+Demonstrates:
+
+- Loading a dataset (e.g., Fashion-MNIST)  
+- Defining the model  
+- Training with validation  
+- Evaluating performance  
+
+Achieves **~88% accuracy** on Fashion-MNIST.
 
 ---
 
 ## ✨ Key Features
-- Fully implemented **forward and backward passes**  
-- Customizable architecture with multiple layers and activations  
-- Works for both **classification** and **regression** problems  
-- Educational code structure, easy to extend with new layers/optimizers  
+
+- Full **forward + backward** implementation  
+- Completely modular architecture  
+- Easy to extend with new layers, activations, losses, or optimizers  
+- Works for **classification** and **regression**  
+- Clean, readable structure ideal for educational purposes
+
+---
+
+## 📜 License
+
+MIT License
+
+---
+
