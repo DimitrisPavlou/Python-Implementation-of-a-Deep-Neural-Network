@@ -53,12 +53,8 @@ Optimization algorithms implemented from scratch:
 
 - **SGD**
 - **Adam**
-
-Each optimizer supports:
-
-- `pre_update()` – called at the start of each epoch  
-- `update_params(layer)` – updates weights & biases  
-- `post_update()` – called at the end of each epoch  
+- **RMSProp**
+- **LRScheduler(step, cosine, plateau)**
 
 ---
 
@@ -84,7 +80,7 @@ Simple data loading utilities:
 - Shuffling  
 - Mini-batch generation  
 - Dataset preparation helpers  
-
+- PyTorch Style DataLoader 
 ---
 
 ## 🔹 Utilities (`utils/`)
@@ -92,7 +88,7 @@ Simple data loading utilities:
 Contains helper modules:
 
 - `metrics.py` → Accuracy, etc.  
-- `weight_init.py` → Weight initialization schemes  
+- `weight_init.py` → Weight initialization schemes (He, Xavier)
 - Additional general utilities
 
 ---
@@ -106,7 +102,7 @@ Demonstrates:
 - Training with validation  
 - Evaluating performance  
 
-Achieves **~88% accuracy** on Fashion-MNIST.
+Achieves **~90% accuracy** on Fashion-MNIST.
 
 ---
 
